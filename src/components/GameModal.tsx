@@ -83,7 +83,7 @@ const GameModal: React.FC<GameModalProps> = ({ game, isOpen, onClose }) => {
               {!isPlaying && (
                 <>
                   <div className="text-gray-300">
-                    Horas jogadas: {game.hours}h
+                    Horas jogadas: {game.hours.toFixed(1)}h
                   </div>
                 </>
               )}
