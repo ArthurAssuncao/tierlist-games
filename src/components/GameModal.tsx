@@ -1,6 +1,7 @@
 import React from "react";
 import { FaRegStar, FaStar, FaTimes } from "react-icons/fa";
 import { Game, GamePlaying } from "../types";
+import { formatDate, formatHours } from "../util/util";
 
 interface GameModalProps {
   game: Game | GamePlaying | null;
@@ -28,11 +29,6 @@ const GameModal: React.FC<GameModalProps> = ({ game, isOpen, onClose }) => {
       }
     }
     return stars;
-  };
-
-  const formatDate = (date: Date | undefined) => {
-    if (!date) return "Não informada";
-    return new Date(date).toLocaleDateString("pt-BR", { timeZone: "UTC" });
   };
 
   return (
@@ -83,7 +79,7 @@ const GameModal: React.FC<GameModalProps> = ({ game, isOpen, onClose }) => {
               {!isPlaying && (
                 <>
                   <div className="text-gray-300">
-                    Horas jogadas: {game.hours.toFixed(1)}h
+                    Horas jogadas: {formatHours(game.hours)}
                   </div>
                 </>
               )}

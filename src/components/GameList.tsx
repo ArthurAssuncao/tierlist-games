@@ -6,7 +6,10 @@ import {
   FaSortAlphaDown,
   FaStar,
 } from "react-icons/fa";
+import { IoTimeSharp } from "react-icons/io5";
+import { LuCalendarArrowDown, LuCalendarArrowUp } from "react-icons/lu";
 import type { Game } from "../types";
+import { formatDate, formatHours } from "../util/util";
 import GameModal from "./GameModal";
 
 interface GameListProps {
@@ -142,12 +145,6 @@ const GameList: React.FC<GameListProps> = ({ games }) => {
     setIsModalOpen(true);
   };
 
-  const formatHours = (hours: number) => {
-    if (hours < 1) return `${Math.round(hours * 60)}min`;
-    if (hours < 10) return `${hours.toFixed(1)}h`;
-    return `${Math.round(hours)}h`;
-  };
-
   const getRatingColor = (rating: number) => {
     if (rating >= 9) return "text-green-500";
     if (rating >= 7) return "text-yellow-500";
@@ -271,33 +268,37 @@ const GameList: React.FC<GameListProps> = ({ games }) => {
                         <div className="flex items-start justify-start gap-3 flex-wrap text-xs text-gray-400">
                           <div className="flex items-start justify-start gap-3 flex-wrap">
                             <div
-                              className={`rounded text-xs font-bold ${getRatingColor(game.rating)}`}
+                              className={`flex gap-1 items-center rounded text-xs font-bold ${getRatingColor(game.rating)}`}
                             >
-                              {game.rating.toFixed(1)}/10
+                              <FaStar className="text-yellow-400" />
+                              <span className="mt-0.5">
+                                {game.rating % 1 !== 0
+                                  ? game.rating.toFixed(1)
+                                  : game.rating}
+                                /10
+                              </span>
                             </div>
-                            <div className="rounded text-xs font-bold bg-gray-800 text-white">
-                              {formatHours(game.hours)}
+                            <div className="flex gap-1 items-center rounded text-xs font-bold bg-gray-800 text-white">
+                              <IoTimeSharp className="" />
+                              <span className="mt-0.5">
+                                {formatHours(game.hours)}
+                              </span>
                             </div>
                           </div>
                         </div>
                         {/* Datas */}
-                        <div className="flex flex-wrap gap-4 text-xs text-gray-400">
+                        <div className="flex flex-wrap gap-1 text-xs text-gray-400">
                           {game.startDate && (
-                            <span>
-                              Início:{" "}
-                              {new Date(game.startDate).toLocaleDateString(
-                                "pt-BR",
-                                { timeZone: "UTC" },
-                              )}
+                            <span className="flex gap-1">
+                              <LuCalendarArrowDown />
+                              <span>{formatDate(game.startDate)}</span>
                             </span>
                           )}
+                          <span> a </span>
                           {game.endDate && (
-                            <span>
-                              Término:{" "}
-                              {new Date(game.endDate).toLocaleDateString(
-                                "pt-BR",
-                                { timeZone: "UTC" },
-                              )}
+                            <span className="flex gap-1">
+                              <LuCalendarArrowUp />
+                              <span>{formatDate(game.endDate)}</span>
                             </span>
                           )}
                           {/*verifica se a data final é maior ou igual a data inicial */}

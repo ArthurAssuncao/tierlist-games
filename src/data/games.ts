@@ -298,8 +298,8 @@ export const games: Game[] = [
       "https://cdn2.steamgriddb.com/thumb/60f2ed2c0c897d831f8c3feb435a4018.png",
     rating: 6,
     hours: 7,
-    startDate: new Date("2024"),
-    endDate: new Date("2024"),
+    startDate: new Date("2025"),
+    endDate: new Date("2025"),
     tier: "bom",
   },
   {
@@ -318,8 +318,8 @@ export const games: Game[] = [
       "https://images.launchbox-app.com//2747f48e-0fe0-4d45-9fb5-4687d72834ce.jpg",
     rating: 6.8,
     hours: 20,
-    startDate: new Date("2024"),
-    endDate: new Date("2024"),
+    startDate: new Date("2025"),
+    endDate: new Date("2025"),
     tier: "bom",
   },
   {
