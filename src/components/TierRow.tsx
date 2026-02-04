@@ -34,7 +34,7 @@ const TierRow: React.FC<TierRowProps> = ({
         <span className="text-center">{tier.name}</span>
       </div>
       <div
-        className={`flex-1 bg-gray-800 bg-opacity-50 p-2 flex flex-wrap gap-2 ${getBorderRadius()}`}
+        className={`flex-1 bg-gray-800 bg-opacity-50 flex flex-wrap gap-2 ${getBorderRadius()}`}
       >
         {tier.games.map((game) => (
           <GameCard

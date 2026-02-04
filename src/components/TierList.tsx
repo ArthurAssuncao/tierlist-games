@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import { BsNintendoSwitch } from "react-icons/bs";
+import { FaPlaystation, FaSteam } from "react-icons/fa";
 import { getGamesByTier, getPlayingGames } from "../data/games";
-import { Game, GamePlaying, TierList } from "../types";
+
+import { Game, GamePlaying } from "../types";
 import CurrentlyPlaying from "./CurrentlyPlaying";
+import GameList from "./GameList";
 import GameModal from "./GameModal";
+import { GraficoGames } from "./GraficoGames";
 import TierRow from "./TierRow";
 
 const TierListComp: React.FC = () => {
@@ -31,30 +36,36 @@ const TierListComp: React.FC = () => {
     });
   };
 
-  function getHoursByYear(tiers: TierList[]) {
-    const hoursByYear = tiers.reduce(
-      (acc, tier) => {
-        tier.games.forEach((game: Game) => {
-          const year = new Date(game.startDate).getFullYear();
-          acc[year] = (acc[year] || 0) + game.hours;
-        });
-        return acc;
-      },
-      {} as Record<number, number>,
-    );
+  // function getHoursByYear(tiers: TierList[]) {
+  //   const hoursByYear = tiers.reduce(
+  //     (acc, tier) => {
+  //       tier.games.forEach((game: Game) => {
+  //         const year = new Date(game.startDate).getUTCFullYear();
+  //         console.log(game.name, year);
+  //         acc[year] = (acc[year] || 0) + game.hours;
+  //       });
+  //       return acc;
+  //     },
+  //     {} as Record<number, number>,
+  //   );
 
-    return Object.entries(hoursByYear)
-      .map(([year, hours]) => ({ year: Number(year), hours }))
-      .sort((a, b) => b.year - a.year);
-  }
+  //   return Object.entries(hoursByYear)
+  //     .map(([year, hours]) => ({ year: Number(year), hours }))
+  //     .sort((a, b) => b.year - a.year);
+  // }
 
   return (
-    <div className="w-full min-h-screen bg-white p-4 md:p-8">
-      <header className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-black-800 mb-2">
-          🎮 Melhores Jogos
+    <div className="w-full min-h-screen bg-gray-800 p-1 md:p-4">
+      <header className="text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 flex flex-col items-center">
+          <span className="text-4xl text-white flex items-center gap-8">
+            <FaSteam />
+            <BsNintendoSwitch />
+            <FaPlaystation />
+          </span>
+          <span>Melhores Jogos</span>
         </h1>
-        <p className="text-gray-600">Minha tierlist pessoal de jogos</p>
+        <p className="text-white">Minha tierlist pessoal de jogos</p>
       </header>
 
       <main className="flex flex-col gap-4">
@@ -67,8 +78,8 @@ const TierListComp: React.FC = () => {
         )}
 
         {/* Tier List Section */}
-        <div className="bg-white rounded-xl p-4 shadow-2xl ">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+        <section className="">
+          <h2 className="text-2xl font-bold text-white text-center">
             🏆 Tier List
           </h2>
 
@@ -83,17 +94,17 @@ const TierListComp: React.FC = () => {
               />
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Stats Section */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-blue-400 rounded-lg p-4 text-center">
+        <section className="mt-2 grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="bg-blue-400 rounded-lg p-4 text-center flex flex-col items-center justify-center">
             <p className="text-white">Total de Jogos</p>
             <p className="text-2xl font-bold text-white">
               {tiers.reduce((acc, tier) => acc + tier.games.length, 0)}
             </p>
           </div>
-          <div className="bg-blue-400 rounded-lg p-4 text-center">
+          <div className="bg-blue-400 rounded-lg p-4 text-center  flex flex-col items-center justify-center">
             <p className="text-white">Horas Totais</p>
             <p className="text-2xl font-bold text-white">
               {tiers
@@ -106,18 +117,12 @@ const TierListComp: React.FC = () => {
               h
             </p>
           </div>
-          <div className="bg-blue-400 rounded-lg p-4">
-            <p className="text-white text-center mb-2">Horas Totais por Ano</p>
+          <div className="bg-blue-400 rounded-lg p-4  flex flex-col items-center justify-center">
             <div className="flex gap-4 flex-wrap items-center justify-center text-white">
-              {getHoursByYear(tiers).map(({ year, hours }) => (
-                <div key={year} className="flex justify-between text-white">
-                  <span>{year}: &nbsp;</span>
-                  <span className="font-bold">{hours.toFixed(1)}h</span>
-                </div>
-              ))}
+              <GraficoGames games={tiers.flatMap((tier) => tier.games)} />
             </div>
           </div>
-          <div className="bg-blue-400 rounded-lg p-4 text-center">
+          <div className="bg-blue-400 rounded-lg p-4 text-center flex flex-col items-center justify-center">
             <p className="text-white">Nota Média</p>
             <p className="text-2xl font-bold text-white">
               {(() => {
@@ -129,7 +134,20 @@ const TierListComp: React.FC = () => {
               })()}
             </p>
           </div>
-        </div>
+        </section>
+
+        {/* game list */}
+        <section className="">
+          <GameList
+            games={tiers.flatMap((tier) =>
+              tier.games.filter((game) => {
+                if ([2010].includes(new Date(game.startDate).getUTCFullYear()))
+                  return false;
+                return true;
+              }),
+            )}
+          />
+        </section>
       </main>
 
       {/* Modal */}

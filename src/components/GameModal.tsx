@@ -36,60 +36,65 @@ const GameModal: React.FC<GameModalProps> = ({ game, isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-900 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="relative">
+    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 backdrop-blur-xs w-full">
+      <div className=" rounded-xl  max-h-[90vh] shadow-lg shadow-blue-500">
+        <div className="relative ">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full p-2"
+            className="absolute top-0 md:top-4 right-0 md:right-4 text-white hover:text-gray-300 z-10 bg-black rounded-full p-2"
             aria-label="Fechar modal"
           >
             <FaTimes size={24} />
           </button>
 
           {/* Game Cover */}
-          <div className="h-64 overflow-hidden rounded-t-xl">
+          <div className="h-[90vh] md:h-[80vh] w-auto rounded-t-xl">
             <img
               src={game.imageUrl}
               alt={game.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-t-xl"
             />
           </div>
 
           {/* Game Info */}
-          <div className="p-6">
-            <div className="flex justify-between items-start mb-4">
+          <div className="absolute bottom-0 bg-black/75 bg-linear-to-t rounded-b-xl w-full p-2 overflow-hidden">
+            <div className="flex justify-between items-start flex-col md:flex-row">
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-white mb-2">
+                <h2
+                  className={`text-2xl font-bold text-white mb-2 ${game.name.length > 20 ? "text-xl" : "text-3xl"}`}
+                >
                   {game.name}
                 </h2>
+              </div>
+              <div className="flex flex-col md:items-end items-start justify-center">
                 {!isPlaying && (
-                  <div className="flex items-center gap-4 text-gray-300">
-                    <span>Nota: {game.rating.toFixed(1)}/10</span>
-                    <span>Horas: {game.hours}h</span>
-                  </div>
+                  <>
+                    <div className="flex gap-1">{renderStars(game.rating)}</div>
+                    <div className=" text-gray-300">
+                      Nota: {game.rating.toFixed(1)}/10
+                    </div>
+                  </>
                 )}
               </div>
-              {!isPlaying && (
-                <div className="flex gap-1 ml-4">
-                  {renderStars(game.rating)}
-                </div>
-              )}
             </div>
 
             {/* Game Dates */}
-            <div className="mb-6 p-4 bg-gray-800 rounded-lg">
-              <h3 className="text-lg font-semibold text-white mb-2">
-                📅 Datas de Jogo
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
+            <div className="rounded-lg">
+              {!isPlaying && (
+                <>
+                  <div className="text-gray-300">
+                    Horas jogadas: {game.hours}h
+                  </div>
+                </>
+              )}
+              <div className="flex gap-1 items-center">
+                <h3 className="text-lg font-semibold text-white">📅</h3>
                 <div>
-                  <p className="text-gray-400 text-sm">Data de Início</p>
                   <p className="text-white">{formatDate(game.startDate)}</p>
                 </div>
+                <div className="text-white"> até </div>
                 {!isPlaying && (
                   <div>
-                    <p className="text-gray-400 text-sm">Data de Término</p>
                     <p className="text-white">{formatDate(game.endDate)}</p>
                   </div>
                 )}

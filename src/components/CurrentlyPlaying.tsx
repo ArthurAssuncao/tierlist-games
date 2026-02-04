@@ -12,9 +12,9 @@ const CurrentlyPlaying: React.FC<CurrentlyPlayingProps> = ({
   onGameClick,
 }) => {
   return (
-    <div className="mb-8 mt-8 flex flex-col items-center justify-center">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">Jogando Agora</h2>
-      <div className="flex gap-8 overflow-x-auto pb-4 items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
+      <h2 className="text-2xl font-bold text-white mt-2 mb-1">Jogando Agora</h2>
+      <div className="flex gap-8 overflow-x-auto items-center justify-center">
         {games.map((game) => (
           <div
             key={game.name

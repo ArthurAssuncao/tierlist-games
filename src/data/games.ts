@@ -238,8 +238,8 @@ export const games: Game[] = [
       "https://gamesdb-images.launchbox.gg/r2_8233e262-2bb8-4eca-8bfb-91dbd7c8c96e.jpg",
     rating: 7.6,
     hours: 12.4,
-    startDate: new Date("2025-12-21"),
-    endDate: new Date("2025-11-21"),
+    startDate: new Date("2025-11-21"),
+    endDate: new Date("2025-12-21"),
     tier: "muito-bom",
   },
   {
@@ -258,8 +258,8 @@ export const games: Game[] = [
       "https://images.launchbox-app.com//26784299-eaab-49dc-ae39-b59b3710b74a.jpg",
     rating: 7.1,
     hours: 22.9,
-    startDate: new Date("2026-02-03"),
-    endDate: new Date("2026-01-24"),
+    startDate: new Date("2026-01-24"),
+    endDate: new Date("2026-02-03"),
     tier: "muito-bom",
   },
   {
@@ -376,10 +376,10 @@ export const games: Game[] = [
     name: "Kingdoms of Amalur: Reckoning",
     imageUrl:
       "https://images.launchbox-app.com//b559b1aa-14e2-4f17-8de2-3cd51320a023.jpg",
-    rating: 1,
+    rating: 2,
     hours: 35,
-    startDate: new Date("2024-04-16"),
-    endDate: new Date("2024-04-04"),
+    startDate: new Date("2024-04-04"),
+    endDate: new Date("2024-04-16"),
     tier: "horrivel",
   },
 ];
