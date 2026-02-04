@@ -188,7 +188,7 @@ const GameList: React.FC<GameListProps> = ({ games }) => {
   return (
     <div className="w-full min-h-screen">
       {/* Header */}
-      <div className="mx-auto">
+      <div className="mx-auto flex flex-col items-center justify-center w-full">
         <div className="flex flex-col justify-between items-start md:items-center gap-2">
           <div className="flex flex-col items-center w-full">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
@@ -240,7 +240,7 @@ const GameList: React.FC<GameListProps> = ({ games }) => {
                       .replaceAll(" ", "-")
                       .replaceAll(":", "")
                       .replaceAll("'", "")}
-                    className="flex gap-2 bg-gray-900 rounded-lg hover:bg-gray-850 transition-colors cursor-pointer min-w-88 h-23"
+                    className="flex gap-2 bg-gray-900 rounded-lg hover:bg-gray-850 cursor-pointer min-w-88 h-23  transition-all hover:scale-105"
                     onClick={() => handleGameClick(game)}
                   >
                     {/* Imagem */}
