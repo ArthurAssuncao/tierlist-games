@@ -44,7 +44,7 @@ const GameModal: React.FC<GameModalProps> = ({ game, isOpen, onClose }) => {
           </button>
 
           {/* Game Cover */}
-          <div className="h-[90vh] md:h-[80vh] w-auto rounded-t-xl">
+          <div className="md:h-[80vh] max-w-[90vw] md:max-w-auto w-[95vw] md:w-auto rounded-t-xl">
             <img
               src={game.imageUrl}
               alt={game.name}

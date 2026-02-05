@@ -8,6 +8,7 @@ import CurrentlyPlaying from "./CurrentlyPlaying";
 import GameList from "./GameList";
 import GameModal from "./GameModal";
 import { GraficoGames } from "./GraficoGames";
+import ScrollToTopButton from "./ScrollToTopButton";
 import TierRow from "./TierRow";
 
 const TierListComp: React.FC = () => {
@@ -83,7 +84,7 @@ const TierListComp: React.FC = () => {
             🏆 Tier List
           </h2>
 
-          <div className="flex flex-col gap-1.5 bg-gray-800 rounded-2xl">
+          <div className="flex flex-col gap-4 md:gap-1.5  bg-gray-800 rounded-2xl">
             {tiers.map((tier, index) => (
               <TierRow
                 key={tier.id}
@@ -156,6 +157,7 @@ const TierListComp: React.FC = () => {
         isOpen={modalState.isOpen}
         onClose={handleCloseModal}
       />
+      <ScrollToTopButton />
     </div>
   );
 };
