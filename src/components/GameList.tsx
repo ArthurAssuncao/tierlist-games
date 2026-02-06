@@ -185,7 +185,7 @@ const GameList: React.FC<GameListProps> = ({ games }) => {
   return (
     <div className="w-full min-h-screen">
       {/* Header */}
-      <div className="mx-auto flex flex-col items-center justify-center w-full">
+      <div className="mx-auto flex flex-col items-center justify-center w-full gap-4">
         <div className="flex flex-col justify-between items-start md:items-center gap-2">
           <div className="flex flex-col items-center w-full">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
