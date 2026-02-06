@@ -3,5 +3,10 @@
 .App {
   min-height: 100vh;
   min-width: 100vw;
-  padding: 16px;
+
+  padding: 8px;
+
+  @media (min-width: 768px) {
+    padding: 16px 8px 16px 0;
+  }
 }
