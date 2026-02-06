@@ -84,14 +84,24 @@ const GameModal: React.FC<GameModalProps> = ({ game, isOpen, onClose }) => {
                 </>
               )}
               <div className="flex gap-1 items-center">
-                <h3 className="text-lg font-semibold text-white">📅</h3>
-                <div>
-                  <p className="text-white">{formatDate(game.startDate)}</p>
-                </div>
-                <div className="text-white"> até </div>
                 {!isPlaying && (
-                  <div>
-                    <p className="text-white">{formatDate(game.endDate)}</p>
+                  <>
+                    <h3 className="text-lg font-semibold text-white">📅</h3>
+                    <div>
+                      <p className="text-white">{formatDate(game.startDate)}</p>
+                    </div>
+                    <div className="text-white"> até </div>
+
+                    <div>
+                      <p className="text-white">{formatDate(game.endDate)}</p>
+                    </div>
+                  </>
+                )}
+                {isPlaying && (
+                  <div className="text-white">
+                    <p className="text-white">
+                      Jogando desde {formatDate(game.startDate)}
+                    </p>
                   </div>
                 )}
               </div>

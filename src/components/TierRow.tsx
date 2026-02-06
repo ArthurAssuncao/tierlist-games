@@ -23,7 +23,7 @@ const TierRow: React.FC<TierRowProps> = ({
 
   return (
     <div
-      className={`flex flex-col md:flex-row border-2 ${getBorderRadius()}`}
+      className={`flex flex-col  md:flex-row border-2 ${getBorderRadius()}`}
       style={{
         backgroundColor: tier.color,
         borderColor: "var(--border-color, #374151)",
@@ -34,7 +34,7 @@ const TierRow: React.FC<TierRowProps> = ({
         <span className="text-center">{tier.name}</span>
       </div>
       <div
-        className={`flex-1 bg-gray-800/90 flex flex-wrap gap-2 ${getBorderRadius()}`}
+        className={`flex-1 bg-gray-800/90 flex justify-between md:justify-start flex-wrap gap-2 ${getBorderRadius()}`}
       >
         {tier.games.map((game) => (
           <GameCard

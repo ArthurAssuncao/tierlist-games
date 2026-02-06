@@ -216,13 +216,13 @@ const GameList: React.FC<GameListProps> = ({ games }) => {
         </div>
 
         {/* Lista de Jogos */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 ">
           {groupedGames.map((group, groupIndex) => (
             <div
               key={`${group.title}-${groupIndex}`}
-              className="bg-gray-800 rounded-xl gap-2 flex flex-col"
+              className="bg-gray-800 rounded-t-xl flex flex-col border-2 border-blue-500"
             >
-              <h2 className="text-2xl font-bold text-white pb-1 border-b border-gray-700 gap-1 flex">
+              <h2 className="text-2xl font-bold text-white pb-1 border-b border-gray-700 gap-1 flex bg-blue-500 p-2 pt-1 rounded-t-xl ">
                 {group.title}
                 <span className="ml-3 text-gray-400 text-lg">
                   ({group.games.length}{" "}
@@ -237,7 +237,7 @@ const GameList: React.FC<GameListProps> = ({ games }) => {
                       .replaceAll(" ", "-")
                       .replaceAll(":", "")
                       .replaceAll("'", "")}
-                    className="flex gap-2 bg-gray-900 rounded-lg hover:bg-gray-850 cursor-pointer min-w-88 h-23  transition-all hover:scale-105"
+                    className="flex gap-2 bg-gray-900 rounded-lg hover:bg-gray-850 cursor-pointer min-w-88 h-23  transition-all md:hover:scale-105 w-full md:w-auto"
                     onClick={() => handleGameClick(game)}
                   >
                     {/* Imagem */}

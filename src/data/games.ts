@@ -76,7 +76,7 @@ export const gamesPlaying: GamePlaying[] = [
     name: "Anomaly Agent",
     imageUrl:
       "https://gamesdb-images.launchbox.gg/r2_64c06f40-57bd-4bf0-9b6a-5ab6f458a756.jpg",
-    startDate: new Date("2026-02-04"),
+    startDate: new Date("2026-02-05"),
     tier: "playing",
   },
 ];
