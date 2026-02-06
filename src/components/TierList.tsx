@@ -60,9 +60,9 @@ const TierListComp: React.FC = () => {
       <header className="text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 flex flex-col items-center">
           <span className="text-4xl text-white flex items-center gap-8">
-            <FaSteam />
-            <BsNintendoSwitch />
-            <FaPlaystation />
+            <FaSteam className="text-white hover:text-blue-500 transition-all" />
+            <BsNintendoSwitch className="text-white hover:text-blue-500 transition-all" />
+            <FaPlaystation className="text-white hover:text-blue-500 transition-all" />
           </span>
           <span>Melhores Jogos</span>
         </h1>

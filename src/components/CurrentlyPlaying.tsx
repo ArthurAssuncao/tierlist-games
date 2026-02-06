@@ -13,7 +13,9 @@ const CurrentlyPlaying: React.FC<CurrentlyPlayingProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <h2 className="text-2xl font-bold text-white mt-2 mb-1">Jogando Agora</h2>
+      <h2 className="text-2xl font-bold text-white mt-2 mb-1">
+        Jogando Atualmente
+      </h2>
       <div className="flex gap-8 overflow-x-auto items-center justify-center">
         {games.map((game) => (
           <div
