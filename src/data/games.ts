@@ -411,14 +411,38 @@ const gamesHorrivel: Game[] = [
   },
 ];
 
+export const sortGamesByRating = (games: Game[]): Game[] => {
+  return games.sort((a, b) => b.rating - a.rating);
+};
+
+export const sortGamesByDateEnd = (games: Game[]): Game[] => {
+  return [...games].sort((a, b) => {
+    // Ambos têm data
+    if (a.endDate && b.endDate) {
+      const dateDiff = a.endDate.getTime() - b.endDate.getTime();
+      if (dateDiff !== 0) return dateDiff;
+      return a.rating - b.rating; // Se datas iguais, ordena por rating
+    }
+
+    // Apenas 'a' tem data (a vem primeiro)
+    if (a.endDate && !b.endDate) return -1;
+
+    // Apenas 'b' tem data (b vem primeiro)
+    if (!a.endDate && b.endDate) return 1;
+
+    // Nenhum tem data - ordena por rating
+    return a.rating - b.rating;
+  });
+};
+
 export const games: Game[] = [
-  ...gamesObraDeArte,
-  ...gamesIncrivel,
-  ...gamesOtimo,
-  ...gamesMuitoBom,
-  ...gamesBom,
-  ...gamesRuim,
-  ...gamesHorrivel,
+  ...sortGamesByDateEnd(gamesObraDeArte),
+  ...sortGamesByDateEnd(gamesIncrivel),
+  ...sortGamesByDateEnd(gamesOtimo),
+  ...sortGamesByDateEnd(gamesMuitoBom),
+  ...sortGamesByDateEnd(gamesBom),
+  ...sortGamesByDateEnd(gamesRuim),
+  ...sortGamesByDateEnd(gamesHorrivel),
 ];
 
 const validarGames = (): void => {
