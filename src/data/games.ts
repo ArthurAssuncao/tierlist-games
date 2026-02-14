@@ -81,7 +81,7 @@ export const gamesPlaying: GamePlaying[] = [
   },
 ];
 
-export const games: Game[] = [
+const gamesObraDeArte: Game[] = [
   {
     name: "Nier:Automata Game of the YoRHa Edition",
     imageUrl:
@@ -92,6 +92,9 @@ export const games: Game[] = [
     endDate: new Date("2024-05-03"),
     tier: "obra-de-arte",
   },
+];
+
+const gamesIncrivel: Game[] = [
   {
     name: "Katana Zero",
     imageUrl:
@@ -102,6 +105,9 @@ export const games: Game[] = [
     endDate: new Date("2023-10-10"),
     tier: "incrivel",
   },
+];
+
+const gamesOtimo: Game[] = [
   {
     name: "Dragon's Dogma: Dark Arisen",
     imageUrl:
@@ -162,6 +168,9 @@ export const games: Game[] = [
     endDate: new Date("2026-01-04"),
     tier: "otimo",
   },
+];
+
+const gamesMuitoBom: Game[] = [
   {
     name: "Diablo III",
     imageUrl:
@@ -262,6 +271,9 @@ export const games: Game[] = [
     endDate: new Date("2026-02-03"),
     tier: "muito-bom",
   },
+];
+
+const gamesBom: Game[] = [
   {
     name: "Dynasty Warriors 8 Empires",
     imageUrl:
@@ -332,7 +344,19 @@ export const games: Game[] = [
     endDate: new Date("2026-01-24"),
     tier: "bom",
   },
+  {
+    name: "Reynatis",
+    imageUrl:
+      "https://images.launchbox-app.com//78756ccf-d07e-476b-880e-48ceee2fd414.png",
+    rating: 6.0,
+    hours: 20,
+    startDate: new Date("2025"),
+    endDate: new Date("2025"),
+    tier: "bom",
+  },
+];
 
+const gamesRuim: Game[] = [
   {
     name: "Halo 2",
     imageUrl:
@@ -372,6 +396,9 @@ export const games: Game[] = [
     endDate: new Date("2025"),
     tier: "ruim",
   },
+];
+
+const gamesHorrivel: Game[] = [
   {
     name: "Kingdoms of Amalur: Reckoning",
     imageUrl:
@@ -382,6 +409,16 @@ export const games: Game[] = [
     endDate: new Date("2024-04-16"),
     tier: "horrivel",
   },
+];
+
+export const games: Game[] = [
+  ...gamesObraDeArte,
+  ...gamesIncrivel,
+  ...gamesOtimo,
+  ...gamesMuitoBom,
+  ...gamesBom,
+  ...gamesRuim,
+  ...gamesHorrivel,
 ];
 
 const validarGames = (): void => {
