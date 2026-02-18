@@ -354,6 +354,16 @@ const gamesBom: Game[] = [
     endDate: new Date("2025"),
     tier: "bom",
   },
+  {
+    name: "Anomaly Agent",
+    imageUrl:
+      "https://gamesdb-images.launchbox.gg/r2_64c06f40-57bd-4bf0-9b6a-5ab6f458a756.jpg",
+    rating: 6.5,
+    hours: 6.8,
+    startDate: new Date("2026-02-05"),
+    endDate: new Date("2026-02-17"),
+    tier: "bom",
+  },
 ];
 
 const gamesRuim: Game[] = [
