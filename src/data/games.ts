@@ -73,10 +73,10 @@ export const gamesPlaying: GamePlaying[] = [
     tier: "playing",
   },
   {
-    name: "Anomaly Agent",
+    name: "Castlevania: Lords of Shadow",
     imageUrl:
-      "https://gamesdb-images.launchbox.gg/r2_64c06f40-57bd-4bf0-9b6a-5ab6f458a756.jpg",
-    startDate: new Date("2026-02-05"),
+      "https://images.launchbox-app.com//83bd7eca-9dc8-4732-9ab5-279f701489b7.jpg",
+    startDate: new Date("2026-02-18"),
     tier: "playing",
   },
 ];
