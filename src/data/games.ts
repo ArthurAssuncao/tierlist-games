@@ -55,7 +55,7 @@ export const tiers: TierList[] = [
   },
   {
     id: "horrivel",
-    name: "Horrível",
+    name: "Desisti",
     icon: "💀",
     color: "#2F4F4F", // DarkSlateGray
     order: 7,
@@ -73,10 +73,10 @@ export const gamesPlaying: GamePlaying[] = [
     tier: "playing",
   },
   {
-    name: "Castlevania: Lords of Shadow",
+    name: "Code Vein",
     imageUrl:
-      "https://images.launchbox-app.com//83bd7eca-9dc8-4732-9ab5-279f701489b7.jpg",
-    startDate: new Date("2026-02-18"),
+      "https://images.launchbox-app.com//da8150ef-a380-40bd-a75d-b0d614aa074d.jpg",
+    startDate: new Date("2026-02-19"),
     tier: "playing",
   },
 ];
@@ -417,6 +417,16 @@ const gamesHorrivel: Game[] = [
     hours: 35,
     startDate: new Date("2024-04-04"),
     endDate: new Date("2024-04-16"),
+    tier: "horrivel",
+  },
+  {
+    name: "Castlevania: Lords of Shadow",
+    imageUrl:
+      "https://images.launchbox-app.com//83bd7eca-9dc8-4732-9ab5-279f701489b7.jpg",
+    rating: 2.9,
+    hours: 1.95,
+    startDate: new Date("2025-02-18"),
+    endDate: new Date("2025-02-19"),
     tier: "horrivel",
   },
 ];

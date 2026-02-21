@@ -12,12 +12,12 @@ type TierWithRating = Exclude<GameTier, "playing">;
 
 const tierRatingRanges: Record<TierWithRating, { min: number; max: number }> = {
   "obra-de-arte": { min: 9.6, max: 10 },
-  incrivel: { min: 9, max: 9.5 },
-  otimo: { min: 8, max: 8.9 },
-  "muito-bom": { min: 7, max: 7.9 },
-  bom: { min: 6, max: 6.9 },
-  ruim: { min: 3, max: 5.9 },
-  horrivel: { min: 0, max: 2.9 },
+  incrivel: { min: 9, max: 9.59 },
+  otimo: { min: 8, max: 8.99 },
+  "muito-bom": { min: 7, max: 7.99 },
+  bom: { min: 6, max: 6.99 },
+  ruim: { min: 3, max: 5.99 },
+  horrivel: { min: 0, max: 2.99 },
 };
 
 // Type guard
