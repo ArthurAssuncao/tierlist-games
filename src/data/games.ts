@@ -73,10 +73,10 @@ export const gamesPlaying: GamePlaying[] = [
     tier: "playing",
   },
   {
-    name: "Code Vein",
+    name: "Batman Arkham Asylum",
     imageUrl:
-      "https://images.launchbox-app.com//da8150ef-a380-40bd-a75d-b0d614aa074d.jpg",
-    startDate: new Date("2026-02-19"),
+      "https://images.launchbox-app.com//1213dc6d-b4af-4dd9-89bf-f8488f7a980f.jpg",
+    startDate: new Date("2026-03-09"),
     tier: "playing",
   },
 ];
@@ -166,6 +166,16 @@ const gamesOtimo: Game[] = [
     hours: 9.4,
     startDate: new Date("2025-12-22"),
     endDate: new Date("2026-01-04"),
+    tier: "otimo",
+  },
+  {
+    name: "Code Vein",
+    imageUrl:
+      "https://images.launchbox-app.com//da8150ef-a380-40bd-a75d-b0d614aa074d.jpg",
+    rating: 8.2,
+    hours: 52.5,
+    startDate: new Date("2026-02-19"),
+    endDate: new Date("2026-03-07"),
     tier: "otimo",
   },
 ];
