@@ -73,10 +73,10 @@ export const gamesPlaying: GamePlaying[] = [
     tier: "playing",
   },
   {
-    name: "Batman Arkham Asylum",
+    name: "Steelrising",
     imageUrl:
-      "https://images.launchbox-app.com//1213dc6d-b4af-4dd9-89bf-f8488f7a980f.jpg",
-    startDate: new Date("2026-03-09"),
+      "https://images.launchbox-app.com//1b6c0c27-b91f-42bd-9a0a-71a69178b639.jpg",
+    startDate: new Date("2026-03-20"),
     tier: "playing",
   },
 ];
@@ -279,6 +279,16 @@ const gamesMuitoBom: Game[] = [
     hours: 22.9,
     startDate: new Date("2026-01-24"),
     endDate: new Date("2026-02-03"),
+    tier: "muito-bom",
+  },
+  {
+    name: "Batman Arkham Asylum",
+    imageUrl:
+      "https://images.launchbox-app.com//1213dc6d-b4af-4dd9-89bf-f8488f7a980f.jpg",
+    rating: 7.0,
+    hours: 14.4,
+    startDate: new Date("2026-03-09"),
+    endDate: new Date("2026-03-20"),
     tier: "muito-bom",
   },
 ];
