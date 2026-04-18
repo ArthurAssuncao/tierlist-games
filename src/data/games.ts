@@ -73,10 +73,10 @@ export const gamesPlaying: GamePlaying[] = [
     tier: "playing",
   },
   {
-    name: "Steelrising",
+    name: "AI Limit",
     imageUrl:
-      "https://images.launchbox-app.com//1b6c0c27-b91f-42bd-9a0a-71a69178b639.jpg",
-    startDate: new Date("2026-03-20"),
+      "https://images.launchbox-app.com//cb7fd360-4a87-496e-8cc5-9948bd4eecf0.png",
+    startDate: new Date("2026-04-04"),
     tier: "playing",
   },
 ];
@@ -289,6 +289,16 @@ const gamesMuitoBom: Game[] = [
     hours: 14.4,
     startDate: new Date("2026-03-09"),
     endDate: new Date("2026-03-20"),
+    tier: "muito-bom",
+  },
+  {
+    name: "Steelrising",
+    imageUrl:
+      "https://images.launchbox-app.com//1b6c0c27-b91f-42bd-9a0a-71a69178b639.jpg",
+    rating: 7.5,
+    hours: 32.2,
+    startDate: new Date("2026-03-20"),
+    endDate: new Date("2026-04-04"),
     tier: "muito-bom",
   },
 ];
