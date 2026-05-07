@@ -73,10 +73,10 @@ export const gamesPlaying: GamePlaying[] = [
     tier: "playing",
   },
   {
-    name: "AI Limit",
+    name: "Nier Replicant",
     imageUrl:
-      "https://images.launchbox-app.com//cb7fd360-4a87-496e-8cc5-9948bd4eecf0.png",
-    startDate: new Date("2026-04-04"),
+      "https://images.launchbox-app.com//a7ab7288-3885-4ad0-8248-8a9c534d5fa9.jpg",
+    startDate: new Date("2026-05-09"),
     tier: "playing",
   },
 ];
@@ -176,6 +176,16 @@ const gamesOtimo: Game[] = [
     hours: 52.5,
     startDate: new Date("2026-02-19"),
     endDate: new Date("2026-03-07"),
+    tier: "otimo",
+  },
+  {
+    name: "AI Limit",
+    imageUrl:
+      "https://images.launchbox-app.com//cb7fd360-4a87-496e-8cc5-9948bd4eecf0.png",
+    rating: 8.5,
+    hours: 44.9,
+    startDate: new Date("2026-04-04"),
+    endDate: new Date("2026-05-07"),
     tier: "otimo",
   },
 ];
