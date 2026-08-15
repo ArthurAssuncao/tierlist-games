@@ -197,7 +197,6 @@ const gamesOtimo: Game[] = [
     startDate: new Date("2026-05-09"),
     endDate: new Date("2026-08-15"),
     tier: "otimo",
-    tier: "playing",
   },
 ];
 
