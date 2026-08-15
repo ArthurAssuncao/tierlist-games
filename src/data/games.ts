@@ -73,10 +73,10 @@ export const gamesPlaying: GamePlaying[] = [
     tier: "playing",
   },
   {
-    name: "Nier Replicant",
+    name: "Stellar Blade",
     imageUrl:
-      "https://images.launchbox-app.com//a7ab7288-3885-4ad0-8248-8a9c534d5fa9.jpg",
-    startDate: new Date("2026-05-09"),
+      "https://images.launchbox-app.com//81455452-ce78-4ec1-b116-da17cfe98597.jpg",
+    startDate: new Date("2026-08-15"),
     tier: "playing",
   },
 ];
@@ -187,6 +187,17 @@ const gamesOtimo: Game[] = [
     startDate: new Date("2026-04-04"),
     endDate: new Date("2026-05-07"),
     tier: "otimo",
+  },
+  {
+    name: "Nier Replicant",
+    imageUrl:
+      "https://images.launchbox-app.com//a7ab7288-3885-4ad0-8248-8a9c534d5fa9.jpg",
+    rating: 8.0,
+    hours: 58.1,
+    startDate: new Date("2026-05-09"),
+    endDate: new Date("2026-08-15"),
+    tier: "otimo",
+    tier: "playing",
   },
 ];
 
