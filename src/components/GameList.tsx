@@ -1,5 +1,8 @@
 // components/GameList.tsx
 import { useMemo, useState } from "react";
+
+import { BiCategory } from "react-icons/bi";
+import { FaGamepad } from "react-icons/fa";
 import {
     FaCalendarAlt,
     FaClock,
@@ -11,6 +14,7 @@ import { LuCalendarArrowDown, LuCalendarArrowUp } from "react-icons/lu";
 import type { Game } from "../types";
 import { formatDate, formatHours } from "../util/util";
 import GameModal from "./GameModal";
+import { GenreStats } from "./GenreStats";
 
 interface GameListProps {
     games: Game[];
@@ -194,182 +198,197 @@ const GameList: React.FC<GameListProps> = ({ games }) => {
     };
 
     return (
-        <div className="w-full min-h-screen">
-            {/* Header */}
-            <div className="mx-auto flex flex-col items-center justify-center w-full gap-4">
-                <div className="flex flex-col justify-between items-start md:items-center gap-2">
-                    <div className="flex flex-col items-center w-full">
-                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                            Jogos zerados
+        <div className="w-full min-h-screen bg-gray-950 text-gray-100 p-4 md:p-8">
+            <div className="max-w-8xl mx-auto flex flex-col gap-8">
+                {/* Header */}
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4 pb-6 border-b border-gray-800">
+                    <div>
+                        <h1 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-500">
+                            Jogos Zerados
                         </h1>
+                        <p className="text-gray-400 text-sm mt-1">
+                            Sua biblioteca de conquistas e avaliações
+                        </p>
                     </div>
 
-                    {/* Controles */}
-                    <div className="flex flex-wrap gap-4 border border-blue-700 rounded-lg items-center justify-center">
-                        {/* Dropdown de ordenação */}
-                        <div className="relative ">
-                            <div className="bg-gray-800 rounded-lg border p-2 border-blue-700 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-700 transition-colors">
-                                {getSortIcon()}
-                                <span className="text-white">
-                                    Ordenar: {getSortLabel()}
-                                </span>
-                                <select
-                                    value={sortOption}
-                                    onChange={(e) =>
-                                        setSortOption(
-                                            e.target.value as SortOption,
-                                        )
-                                    }
-                                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer text-black"
+                    {/* Controles de Ordenação */}
+                    <div className="relative">
+                        <div className="bg-gray-900 hover:bg-gray-800 border border-gray-700/80 rounded-xl px-4 py-2.5 flex items-center gap-3 cursor-pointer transition-all shadow-md hover:border-blue-500/50">
+                            {getSortIcon()}
+                            <span className="text-sm font-medium text-gray-200">
+                                Ordenar:{" "}
+                                <strong className="text-blue-400">
+                                    {getSortLabel()}
+                                </strong>
+                            </span>
+                            <select
+                                value={sortOption}
+                                onChange={(e) =>
+                                    setSortOption(e.target.value as SortOption)
+                                }
+                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                            >
+                                <option
+                                    value="alphabetical"
+                                    className="bg-gray-900 text-gray-200"
                                 >
-                                    <option value="alphabetical">
-                                        Ordem Alfabética
-                                    </option>
-                                    <option value="rating">Nota</option>
-                                    <option value="dateStarted">
-                                        Data de Início
-                                    </option>
-                                    <option value="dateFinished">
-                                        Data de Término
-                                    </option>
-                                </select>
-                            </div>
+                                    Ordem Alfabética
+                                </option>
+                                <option
+                                    value="rating"
+                                    className="bg-gray-900 text-gray-200"
+                                >
+                                    Nota
+                                </option>
+                                <option
+                                    value="dateStarted"
+                                    className="bg-gray-900 text-gray-200"
+                                >
+                                    Data de Início
+                                </option>
+                                <option
+                                    value="dateFinished"
+                                    className="bg-gray-900 text-gray-200"
+                                >
+                                    Data de Término
+                                </option>
+                            </select>
                         </div>
                     </div>
                 </div>
 
-                {/* Lista de Jogos */}
-                <div className="flex flex-col gap-4 ">
+                {/* Lista de Grupos de Jogos */}
+                <div className="flex flex-col gap-8">
                     {groupedGames.map((group, groupIndex) => (
                         <div
                             key={`${group.title}-${groupIndex}`}
-                            className="bg-gray-800 md:rounded-t-xl flex flex-col border-2 border-blue-500"
+                            className="flex flex-col gap-4"
                         >
-                            <h2 className="text-2xl font-bold text-white pb-1 border-b border-gray-700 gap-1 flex bg-blue-500 p-2 pt-1 md:rounded-t-xl ">
-                                {group.title}
-                                <span className="ml-3 text-gray-400 text-lg">
-                                    ({group.games.length}{" "}
+                            {/* Título do Grupo */}
+                            <div className="flex items-center gap-3">
+                                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                                    <span className="w-2 h-6 bg-blue-500 rounded-full inline-block"></span>
+                                    {group.title}
+                                </h2>
+                                <span className="bg-gray-800 text-gray-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-gray-700">
+                                    {group.games.length}{" "}
                                     {group.games.length === 1
                                         ? "jogo"
                                         : "jogos"}
-                                    )
                                 </span>
-                            </h2>
+                            </div>
 
-                            <div className=" flex flex-wrap gap-4">
+                            {/* Grid de Cards */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                                 {group.games.map((game) => (
                                     <div
                                         key={game.name
                                             .replaceAll(" ", "-")
                                             .replaceAll(":", "")
                                             .replaceAll("'", "")}
-                                        className="flex gap-2 bg-gray-900 rounded-lg hover:bg-gray-850 cursor-pointer min-w-90 h-23  transition-all md:hover:scale-105 w-full md:w-auto"
                                         onClick={() => handleGameClick(game)}
+                                        className="group relative bg-gray-900/80 hover:bg-gray-850 border border-gray-800 hover:border-blue-500/40 rounded-xl p-3 flex gap-3.5 items-center cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 hover:-translate-y-1 overflow-hidden"
                                     >
-                                        {/* Imagem */}
-                                        <div className="w-auto h-23 shrink-0">
+                                        {/* Capa do Jogo (Frente) */}
+                                        <div className="w-20 h-28 shrink-0 rounded-lg overflow-hidden bg-gray-800 shadow-md relative">
                                             {game.imageUrl ? (
                                                 <img
                                                     src={game.imageUrl}
                                                     alt={game.name}
-                                                    className="w-auto h-23 object-cover"
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                                 />
                                             ) : (
-                                                <div className="w-full h-full bg-linear-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                                                    <span className="text-white text-xs font-bold">
-                                                        {game.name.charAt(0)}
+                                                <div className="w-full h-full bg-linear-to-br from-gray-800 to-gray-700 flex flex-col items-center justify-center p-2 text-center">
+                                                    <FaGamepad className="text-gray-500 text-xl mb-1" />
+                                                    <span className="text-gray-400 text-[10px] font-bold line-clamp-2 leading-tight">
+                                                        {game.name}
                                                     </span>
                                                 </div>
                                             )}
                                         </div>
 
-                                        {/* Informações */}
-                                        <div className="h-full min-w-0 ">
-                                            <div className="h-full flex flex-col justify-around ">
+                                        {/* Informações do Jogo */}
+                                        <div className="flex-1 min-w-0 flex flex-col justify-between h-28 py-0.5">
+                                            <div>
+                                                {/* Nome */}
                                                 <h3
-                                                    className={`text-lg font-semibold text-white truncate ${game.name.length > 20 ? "text-sm" : ""}`}
+                                                    className="text-base font-bold text-white truncate group-hover:text-blue-400 transition-colors"
+                                                    title={game.name}
                                                 >
                                                     {game.name}
                                                 </h3>
-                                                <div className="flex items-start justify-start gap-3 flex-wrap text-xs text-gray-400">
-                                                    <div className="flex items-start justify-start gap-3 flex-wrap">
-                                                        <div
-                                                            className={`flex gap-1 items-center rounded text-xs font-bold ${getRatingColor(game.rating)}`}
-                                                        >
-                                                            <FaStar className="text-yellow-400" />
-                                                            <span className="mt-0.5">
-                                                                {game.rating %
-                                                                    1 !==
-                                                                0
-                                                                    ? game.rating.toFixed(
-                                                                          1,
-                                                                      )
-                                                                    : game.rating}
-                                                                /10
-                                                            </span>
-                                                        </div>
-                                                        <div className="flex gap-1 items-center rounded text-xs font-bold bg-gray-800 text-white">
-                                                            <IoTimeSharp className="" />
-                                                            <span className="mt-0.5">
-                                                                {formatHours(
-                                                                    game.hours,
-                                                                )}
-                                                            </span>
-                                                        </div>
-                                                    </div>
+
+                                                {/* Tag de Gênero */}
+                                                {game.genres && (
+                                                    <span className="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20 max-w-full truncate">
+                                                        <BiCategory />
+                                                        <span className="truncate">
+                                                            {game.genres.join(
+                                                                ", ",
+                                                            )}
+                                                        </span>
+                                                    </span>
+                                                )}
+                                            </div>
+
+                                            {/* Metadados: Nota e Tempo */}
+                                            <div className="flex items-center gap-2 mt-2">
+                                                <div
+                                                    className={`flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-bold ${getRatingColor(game.rating)}`}
+                                                >
+                                                    <FaStar className="text-yellow-400 text-xs" />
+                                                    <span>
+                                                        {game.rating.toFixed(1)}
+                                                        /10
+                                                    </span>
                                                 </div>
-                                                {/* Datas */}
-                                                <div className="flex flex-wrap gap-1 text-xs text-gray-400">
-                                                    {game.startDate && (
-                                                        <span className="flex gap-1">
-                                                            <LuCalendarArrowDown />
-                                                            <span>
-                                                                {formatDate(
-                                                                    game.startDate,
-                                                                )}
-                                                            </span>
-                                                        </span>
-                                                    )}
-                                                    <span> a </span>
-                                                    {game.endDate && (
-                                                        <span className="flex gap-1">
-                                                            <LuCalendarArrowUp />
-                                                            <span>
-                                                                {formatDate(
-                                                                    game.endDate,
-                                                                )}
-                                                            </span>
-                                                        </span>
-                                                    )}
-                                                    {/*verifica se a data final é maior ou igual a data inicial */}
-                                                    {game.endDate &&
-                                                        game.startDate &&
-                                                        new Date(
-                                                            game.endDate,
-                                                        ).getTime() <
-                                                            new Date(
-                                                                game.startDate,
-                                                            ).getTime() && (
-                                                            <span className="text-red-500">
-                                                                Data incorreta
-                                                            </span>
+
+                                                <div className="flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium bg-gray-800 text-gray-300 border border-gray-700/50">
+                                                    <IoTimeSharp className="text-gray-400 text-xs" />
+                                                    <span>
+                                                        {formatHours(
+                                                            game.hours,
                                                         )}
+                                                    </span>
                                                 </div>
                                             </div>
 
-                                            {/* Preview do comentário */}
-                                            {game.comment && (
-                                                <p className="text-gray-500 text-sm mt-2 line-clamp-1">
-                                                    "
-                                                    {game.comment.length > 80
-                                                        ? game.comment.substring(
-                                                              0,
-                                                              80,
-                                                          ) + "..."
-                                                        : game.comment}
-                                                    "
-                                                </p>
-                                            )}
+                                            {/* Datas */}
+                                            <div className="flex items-center  gap-1 text-[11px] text-gray-400 mt-1">
+                                                {game.startDate && (
+                                                    <span className="flex items-center gap-0.5">
+                                                        <LuCalendarArrowDown className="text-gray-500" />
+                                                        {formatDate(
+                                                            game.startDate,
+                                                        )}
+                                                    </span>
+                                                )}
+                                                {game.startDate &&
+                                                    game.endDate && (
+                                                        <span>•</span>
+                                                    )}
+                                                {game.endDate && (
+                                                    <span className="flex items-center gap-0.5">
+                                                        <LuCalendarArrowUp className="text-gray-500" />
+                                                        {formatDate(
+                                                            game.endDate,
+                                                        )}
+                                                    </span>
+                                                )}
+                                                {!game.finished && (
+                                                    <div className="flex-1 min-w-0 flex flex-col justify-between">
+                                                        <div>
+                                                            <span className="inline-flex items-center gap-1  px-2 py-0.5 rounded-md text-[10px] font-medium bg-red-500/10 text-red-400 border border-blue-500/20 max-w-full truncate">
+                                                                <BiCategory />
+                                                                <span className="truncate">
+                                                                    Não
+                                                                    Finalizado
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 ))}

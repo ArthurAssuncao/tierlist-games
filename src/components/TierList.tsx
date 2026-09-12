@@ -1,7 +1,16 @@
 import { useState } from "react";
-import { BsNintendoSwitch } from "react-icons/bs";
-import { FaPlaystation, FaSteam } from "react-icons/fa";
+
 import { getGamesByTier, getPlayingGames } from "../data/games";
+import { BiCategory } from "react-icons/bi";
+
+import {
+    FaSteam,
+    FaPlaystation,
+    FaGamepad,
+    FaClock,
+    FaStar,
+} from "react-icons/fa";
+import { BsNintendoSwitch } from "react-icons/bs";
 
 import { Game, GamePlaying } from "../types";
 import CurrentlyPlaying from "./CurrentlyPlaying";
@@ -10,6 +19,7 @@ import GameModal from "./GameModal";
 import { GraficoGames } from "./GraficoGames";
 import ScrollToTopButton from "./ScrollToTopButton";
 import TierRow from "./TierRow";
+import { GenreStats } from "./GenreStats";
 
 const TierListComp: React.FC = () => {
     const tiers = getGamesByTier();
@@ -56,127 +66,183 @@ const TierListComp: React.FC = () => {
     // }
 
     return (
-        <div className="w-full min-h-screen bg-gray-800 p-1 md:p-4">
-            <header className="text-center">
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 flex flex-col items-center">
-                    <span className="text-4xl text-white flex items-center gap-8">
-                        <FaSteam className="text-white hover:text-blue-500 transition-all" />
-                        <BsNintendoSwitch className="text-white hover:text-blue-500 transition-all" />
-                        <FaPlaystation className="text-white hover:text-blue-500 transition-all" />
-                    </span>
-                    <span>Melhores Jogos</span>
-                </h1>
-                <p className="text-white">Minha tierlist pessoal de jogos</p>
-            </header>
+        <div className="w-full min-h-screen bg-gray-950 text-gray-100 p-3 md:p-8">
+            <div className="max-w-8xl mx-auto flex flex-col gap-8">
+                {/* Header */}
+                <header className="flex flex-col items-center justify-center text-center gap-3 pt-4 pb-6 border-b border-gray-800">
+                    <div className="flex items-center gap-6 text-3xl md:text-4xl text-gray-400">
+                        <FaSteam className="hover:text-blue-400 hover:scale-110 transition-all duration-300 cursor-pointer" />
+                        <BsNintendoSwitch className="hover:text-red-500 hover:scale-110 transition-all duration-300 cursor-pointer" />
+                        <FaPlaystation className="hover:text-blue-600 hover:scale-110 transition-all duration-300 cursor-pointer" />
+                    </div>
+                    <div>
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-400 to-purple-500">
+                            Melhores Jogos
+                        </h1>
+                        <p className="text-gray-400 text-sm md:text-base mt-1 font-medium">
+                            Minha tierlist pessoal de jogos zerados
+                        </p>
+                    </div>
+                </header>
 
-            <main className="flex flex-col gap-4">
-                {/* Currently Playing Section */}
-                {playingGames.length > 0 && (
-                    <CurrentlyPlaying
-                        games={playingGames}
-                        onGameClick={handleGameClick}
-                    />
-                )}
-
-                {/* Tier List Section */}
-                <section className="">
-                    <h2 className="text-2xl font-bold text-white text-center">
-                        🏆 Tier List
-                    </h2>
-
-                    <div className="flex flex-col gap-4 md:gap-1.5  bg-gray-800 rounded-2xl">
-                        {tiers.map((tier, index) => (
-                            <TierRow
-                                key={tier.id}
-                                tier={tier}
-                                index={index}
-                                totalTiers={tiers.length}
+                <main className="flex flex-col gap-8">
+                    {/* Currently Playing Section */}
+                    {playingGames.length > 0 && (
+                        <section className="bg-gray-900/60 border border-gray-800 rounded-2xl p-4 md:p-6 shadow-xl backdrop-blur-sm">
+                            <CurrentlyPlaying
+                                games={playingGames}
                                 onGameClick={handleGameClick}
                             />
-                        ))}
-                    </div>
-                </section>
+                        </section>
+                    )}
 
-                {/* Stats Section */}
-                <section className="mt-2 grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div className="bg-blue-400 rounded-lg p-4 text-center flex flex-col items-center justify-center">
-                        <p className="text-white">Total de Jogos</p>
-                        <p className="text-2xl font-bold text-white">
-                            {tiers.reduce(
-                                (acc, tier) => acc + tier.games.length,
-                                0,
-                            )}
-                        </p>
-                    </div>
-                    <div className="bg-blue-400 rounded-lg p-4 text-center  flex flex-col items-center justify-center">
-                        <p className="text-white">Horas Totais</p>
-                        <p className="text-2xl font-bold text-white">
-                            {tiers
-                                .reduce(
-                                    (acc, tier) =>
-                                        acc +
-                                        tier.games.reduce(
-                                            (sum, game) => sum + game.hours,
-                                            0,
-                                        ),
-                                    0,
-                                )
-                                .toFixed(1)}
-                            h
-                        </p>
-                    </div>
-                    <div className="bg-blue-400 rounded-lg p-4  flex flex-col items-center justify-center">
-                        <div className="flex gap-4 flex-wrap items-center justify-center text-white">
-                            <GraficoGames
+                    {/* Tier List Section */}
+                    <section className="flex flex-col gap-4">
+                        <div className="flex items-center justify-center gap-2">
+                            <span className="text-2xl">🏆</span>
+                            <h2 className="text-2xl md:text-3xl font-bold text-white text-center">
+                                Tier List
+                            </h2>
+                        </div>
+
+                        <div className="flex flex-col gap-3 bg-gray-900/70 border border-gray-800/80 p-2 md:p-4 rounded-2xl shadow-2xl backdrop-blur-md">
+                            {tiers.map((tier, index) => (
+                                <TierRow
+                                    key={tier.id}
+                                    tier={tier}
+                                    index={index}
+                                    totalTiers={tiers.length}
+                                    onGameClick={handleGameClick}
+                                />
+                            ))}
+                        </div>
+                    </section>
+
+                    <section className="bg-gray-900/40 border border-gray-800/60 rounded-2xl p-4 md:p-6 shadow-xl">
+                        <div className="flex flex-col gap-6 p-4">
+                            {/* Outros componentes como TierList, Cards, etc. */}
+
+                            {/* Componente de Estatísticas por Gênero */}
+                            <GenreStats
                                 games={tiers.flatMap((tier) => tier.games)}
                             />
                         </div>
-                    </div>
-                    <div className="bg-blue-400 rounded-lg p-4 text-center flex flex-col items-center justify-center">
-                        <p className="text-white">Nota Média</p>
-                        <p className="text-2xl font-bold text-white">
-                            {(() => {
-                                const allGames = tiers.flatMap(
-                                    (tier) => tier.games,
-                                );
-                                const avg =
-                                    allGames.reduce(
-                                        (acc, game) => acc + game.rating,
+                    </section>
+
+                    {/* Stats Section */}
+                    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {/* Total de Jogos */}
+                        <div className="bg-gray-900/80 border border-gray-800 hover:border-blue-500/40 rounded-xl p-5 text-center flex flex-col items-center justify-center gap-2 transition-all shadow-md group">
+                            <div className="p-3 bg-blue-500/10 text-blue-400 rounded-lg group-hover:scale-110 transition-transform">
+                                <FaGamepad className="text-xl" />
+                            </div>
+                            <div>
+                                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                    Total de Jogos
+                                </p>
+                                <p className="text-3xl font-extrabold text-white mt-1">
+                                    {tiers.reduce(
+                                        (acc, tier) => acc + tier.games.length,
                                         0,
-                                    ) / allGames.length;
-                                return avg.toFixed(1);
-                            })()}
-                        </p>
-                    </div>
-                </section>
+                                    )}
+                                </p>
+                            </div>
+                        </div>
 
-                {/* game list */}
-                <section className="">
-                    <GameList
-                        games={tiers.flatMap((tier) =>
-                            tier.games.filter((game) => {
-                                if (
-                                    [2010].includes(
-                                        new Date(
-                                            game.startDate,
-                                        ).getUTCFullYear(),
+                        {/* Horas Totais */}
+                        <div className="bg-gray-900/80 border border-gray-800 hover:border-indigo-500/40 rounded-xl p-5 text-center flex flex-col items-center justify-center gap-2 transition-all shadow-md group">
+                            <div className="p-3 bg-indigo-500/10 text-indigo-400 rounded-lg group-hover:scale-110 transition-transform">
+                                <FaClock className="text-xl" />
+                            </div>
+                            <div>
+                                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                    Horas Totais
+                                </p>
+                                <p className="text-3xl font-extrabold text-white mt-1">
+                                    {tiers
+                                        .reduce(
+                                            (acc, tier) =>
+                                                acc +
+                                                tier.games.reduce(
+                                                    (sum, game) =>
+                                                        sum + game.hours,
+                                                    0,
+                                                ),
+                                            0,
+                                        )
+                                        .toFixed(1)}
+                                    <span className="text-lg font-normal text-gray-400 ml-1">
+                                        h
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Gráfico */}
+                        <div className="bg-gray-900/80 border border-gray-800 hover:border-purple-500/40 rounded-xl p-4 flex flex-col items-center justify-center transition-all shadow-md">
+                            <div className="w-full flex items-center justify-center text-white">
+                                <GraficoGames
+                                    games={tiers.flatMap((tier) => tier.games)}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Nota Média */}
+                        <div className="bg-gray-900/80 border border-gray-800 hover:border-amber-500/40 rounded-xl p-5 text-center flex flex-col items-center justify-center gap-2 transition-all shadow-md group">
+                            <div className="p-3 bg-amber-500/10 text-amber-400 rounded-lg group-hover:scale-110 transition-transform">
+                                <FaStar className="text-xl" />
+                            </div>
+                            <div>
+                                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                    Nota Média
+                                </p>
+                                <p className="text-3xl font-extrabold text-white mt-1">
+                                    {(() => {
+                                        const allGames = tiers.flatMap(
+                                            (tier) => tier.games,
+                                        );
+                                        if (allGames.length === 0) return "0.0";
+                                        const avg =
+                                            allGames.reduce(
+                                                (acc, game) =>
+                                                    acc + game.rating,
+                                                0,
+                                            ) / allGames.length;
+                                        return avg.toFixed(1);
+                                    })()}
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Game List */}
+                    <section className="bg-gray-900/40 border border-gray-800/60 rounded-2xl p-4 md:p-6 shadow-xl">
+                        <GameList
+                            games={tiers.flatMap((tier) =>
+                                tier.games.filter((game) => {
+                                    if (
+                                        [2010].includes(
+                                            new Date(
+                                                game.startDate,
+                                            ).getUTCFullYear(),
+                                        )
                                     )
-                                )
-                                    return false;
-                                return true;
-                            }),
-                        )}
-                    />
-                </section>
-            </main>
+                                        return false;
+                                    return true;
+                                }),
+                            )}
+                        />
+                    </section>
+                </main>
 
-            {/* Modal */}
-            <GameModal
-                game={modalState.game}
-                isOpen={modalState.isOpen}
-                onClose={handleCloseModal}
-            />
-            <ScrollToTopButton />
+                {/* Modal & Auxiliary Components */}
+                <GameModal
+                    game={modalState.game}
+                    isOpen={modalState.isOpen}
+                    onClose={handleCloseModal}
+                />
+                <ScrollToTopButton />
+            </div>
         </div>
     );
 };

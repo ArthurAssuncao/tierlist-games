@@ -49,7 +49,7 @@ export function getTierFromRating(rating: number): TierWithRating {
     return "horrivel";
 }
 
-type GameGenre =
+export type GameGenre =
     | "FPS"
     | "Soulslike"
     | "Metroidvania"
@@ -73,6 +73,7 @@ export interface Game {
     comment?: string;
     tier: GameTier;
     genres?: GameGenre[];
+    finished: boolean;
 }
 
 export interface GamePlaying extends Omit<

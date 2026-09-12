@@ -66,20 +66,13 @@ export const tiers: TierList[] = [
 //www.steamgriddb.com/grid/623097
 export const gamesPlaying: GamePlaying[] = [
     {
-        name: "Final Fantasy XIII",
-        imageUrl:
-            "https://images.launchbox-app.com//90578bfa-e537-4345-8e1a-7301228b12f1.jpg",
-        startDate: new Date("2025-05-06"),
-        genres: ["RPG de Turno"],
-        tier: "playing",
-    },
-    {
         name: "WUCHANG: Fallen Feathers",
         imageUrl:
             "https://images.launchbox-app.com//9a3a021d-fe59-4cf9-82d9-08fcf1a86fff.jpg",
         startDate: new Date("2026-09-02"),
         genres: ["Soulslike"],
         tier: "playing",
+        finished: false,
     },
 ];
 
@@ -94,6 +87,7 @@ const gamesObraDeArte: Game[] = [
         endDate: new Date("2024-05-03"),
         genres: ["Action RPG"],
         tier: "obra-de-arte",
+        finished: true,
     },
 ];
 
@@ -108,6 +102,7 @@ const gamesIncrivel: Game[] = [
         endDate: new Date("2023-10-10"),
         genres: ["Plataforma 2D"],
         tier: "incrivel",
+        finished: true,
     },
     {
         name: "Stellar Blade",
@@ -119,6 +114,7 @@ const gamesIncrivel: Game[] = [
         endDate: new Date("2026-09-02"),
         genres: ["Action RPG"],
         tier: "incrivel",
+        finished: true,
     },
 ];
 
@@ -133,6 +129,7 @@ const gamesOtimo: Game[] = [
         endDate: new Date("2023-12-26"),
         genres: ["Action RPG"],
         tier: "otimo",
+        finished: true,
     },
     {
         name: "Halo: Reach",
@@ -144,6 +141,7 @@ const gamesOtimo: Game[] = [
         endDate: new Date("2023-09-26"),
         genres: ["FPS"],
         tier: "otimo",
+        finished: true,
     },
     {
         name: "Metal Gear Rising: Revengeance",
@@ -155,6 +153,7 @@ const gamesOtimo: Game[] = [
         endDate: new Date("2023-09-26"),
         genres: ["Hack and Slash"],
         tier: "otimo",
+        finished: true,
     },
     {
         name: "ENDER LILIES: Quietus of the Knights",
@@ -166,6 +165,7 @@ const gamesOtimo: Game[] = [
         endDate: new Date("2024-12-21"),
         genres: ["Metroidvania"],
         tier: "otimo",
+        finished: true,
     },
     {
         name: "ENDER MAGNOLIA: Bloom in the Mist",
@@ -177,6 +177,7 @@ const gamesOtimo: Game[] = [
         endDate: new Date("2025-10-30"),
         genres: ["Metroidvania"],
         tier: "otimo",
+        finished: true,
     },
     {
         name: "Titanfall 2",
@@ -188,6 +189,7 @@ const gamesOtimo: Game[] = [
         endDate: new Date("2026-01-04"),
         genres: ["FPS"],
         tier: "otimo",
+        finished: true,
     },
     {
         name: "Code Vein",
@@ -199,6 +201,7 @@ const gamesOtimo: Game[] = [
         endDate: new Date("2026-03-07"),
         genres: ["Soulslike"],
         tier: "otimo",
+        finished: true,
     },
     {
         name: "AI Limit",
@@ -210,6 +213,7 @@ const gamesOtimo: Game[] = [
         endDate: new Date("2026-05-07"),
         genres: ["Soulslike"],
         tier: "otimo",
+        finished: true,
     },
     {
         name: "Nier Replicant",
@@ -221,6 +225,7 @@ const gamesOtimo: Game[] = [
         endDate: new Date("2026-08-15"),
         genres: ["Action RPG"],
         tier: "otimo",
+        finished: true,
     },
 ];
 
@@ -235,6 +240,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2023"),
         genres: ["Action RPG"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "Halo: Combat Evolved",
@@ -246,6 +252,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2010"),
         genres: ["FPS"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "Halo 3",
@@ -257,6 +264,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2024"),
         genres: ["FPS"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "Halo 4",
@@ -268,6 +276,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2024"),
         genres: ["FPS"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "CRYMACHINA",
@@ -279,6 +288,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2024"),
         genres: ["Action RPG"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "Astral Chain",
@@ -290,6 +300,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2025"),
         genres: ["Action RPG"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "Ultra Age",
@@ -301,6 +312,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2025-11-20"),
         genres: ["Action RPG"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "Soulstice",
@@ -312,6 +324,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2025-12-21"),
         genres: ["Hack and Slash"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "Afterimage",
@@ -323,6 +336,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2025-04-07"),
         genres: ["Metroidvania"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "The Devil Within: Satgat",
@@ -334,6 +348,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2026-02-03"),
         genres: ["Metroidvania"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "Batman Arkham Asylum",
@@ -345,6 +360,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2026-03-20"),
         genres: ["Aventura"],
         tier: "muito-bom",
+        finished: true,
     },
     {
         name: "Steelrising",
@@ -356,6 +372,7 @@ const gamesMuitoBom: Game[] = [
         endDate: new Date("2026-04-04"),
         genres: ["Soulslike"],
         tier: "muito-bom",
+        finished: true,
     },
 ];
 
@@ -370,6 +387,7 @@ const gamesBom: Game[] = [
         endDate: new Date("2023"),
         genres: ["Musou"],
         tier: "bom",
+        finished: true,
     },
     {
         name: "Mortal Kombat 11",
@@ -381,6 +399,7 @@ const gamesBom: Game[] = [
         endDate: new Date("2023"),
         genres: ["Luta"],
         tier: "bom",
+        finished: true,
     },
     {
         name: "Halo 3: ODST",
@@ -392,6 +411,7 @@ const gamesBom: Game[] = [
         endDate: new Date("2024"),
         genres: ["FPS"],
         tier: "bom",
+        finished: true,
     },
     {
         name: "Megaman X4",
@@ -403,6 +423,7 @@ const gamesBom: Game[] = [
         endDate: new Date("2025"),
         genres: ["Plataforma 2D"],
         tier: "bom",
+        finished: true,
     },
     {
         name: "Tower Hunter: Erza's Trial",
@@ -414,6 +435,7 @@ const gamesBom: Game[] = [
         endDate: new Date("2024"),
         genres: ["Metroidvania"],
         tier: "bom",
+        finished: true,
     },
     {
         name: "Lost Epic",
@@ -425,6 +447,7 @@ const gamesBom: Game[] = [
         endDate: new Date("2025"),
         genres: ["Metroidvania"],
         tier: "bom",
+        finished: true,
     },
     {
         name: "Mass Effect",
@@ -436,6 +459,7 @@ const gamesBom: Game[] = [
         endDate: new Date("2026-01-24"),
         genres: ["Action RPG", "FPS"],
         tier: "bom",
+        finished: true,
     },
     {
         name: "Reynatis",
@@ -447,6 +471,7 @@ const gamesBom: Game[] = [
         endDate: new Date("2025"),
         genres: ["Action RPG"],
         tier: "bom",
+        finished: true,
     },
     {
         name: "Anomaly Agent",
@@ -458,6 +483,19 @@ const gamesBom: Game[] = [
         endDate: new Date("2026-02-17"),
         genres: ["Plataforma 2D"],
         tier: "bom",
+        finished: true,
+    },
+    {
+        name: "Final Fantasy XIII",
+        imageUrl:
+            "https://images.launchbox-app.com//90578bfa-e537-4345-8e1a-7301228b12f1.jpg",
+        startDate: new Date("2025-05-06"),
+        endDate: new Date("2025-05-30"),
+        genres: ["RPG de Turno"],
+        rating: 6.0,
+        hours: 51.4,
+        tier: "bom",
+        finished: false,
     },
 ];
 
@@ -472,6 +510,7 @@ const gamesRuim: Game[] = [
         endDate: new Date("2024"),
         genres: ["FPS"],
         tier: "ruim",
+        finished: true,
     },
     {
         name: "Devil May Cry",
@@ -483,6 +522,7 @@ const gamesRuim: Game[] = [
         endDate: new Date("2025-03-16"),
         genres: ["Hack and Slash"],
         tier: "ruim",
+        finished: true,
     },
     {
         name: "Megaman X",
@@ -494,6 +534,7 @@ const gamesRuim: Game[] = [
         endDate: new Date("2025"),
         genres: ["Plataforma 2D"],
         tier: "ruim",
+        finished: true,
     },
     {
         name: "Digimon World 3",
@@ -505,6 +546,7 @@ const gamesRuim: Game[] = [
         endDate: new Date("2025"),
         genres: ["RPG de Turno"],
         tier: "ruim",
+        finished: true,
     },
 ];
 
@@ -519,6 +561,7 @@ const gamesHorrivel: Game[] = [
         endDate: new Date("2024-04-16"),
         genres: ["Action RPG"],
         tier: "horrivel",
+        finished: false,
     },
     {
         name: "Castlevania: Lords of Shadow",
@@ -530,6 +573,7 @@ const gamesHorrivel: Game[] = [
         endDate: new Date("2025-02-19"),
         genres: ["Hack and Slash"],
         tier: "horrivel",
+        finished: false,
     },
 ];
 
