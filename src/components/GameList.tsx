@@ -14,7 +14,6 @@ import { LuCalendarArrowDown, LuCalendarArrowUp } from "react-icons/lu";
 import type { Game } from "../types";
 import { formatDate, formatHours } from "../util/util";
 import GameModal from "./GameModal";
-import { GenreStats } from "./GenreStats";
 
 interface GameListProps {
     games: Game[];

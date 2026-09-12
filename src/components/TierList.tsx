@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { getGamesByTier, getPlayingGames } from "../data/games";
-import { BiCategory } from "react-icons/bi";
 
 import {
     FaSteam,
