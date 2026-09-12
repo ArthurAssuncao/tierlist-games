@@ -70,6 +70,7 @@ export const gamesPlaying: GamePlaying[] = [
         imageUrl:
             "https://images.launchbox-app.com//90578bfa-e537-4345-8e1a-7301228b12f1.jpg",
         startDate: new Date("2025-05-06"),
+        genres: ["RPG de Turno"],
         tier: "playing",
     },
     {
@@ -77,6 +78,7 @@ export const gamesPlaying: GamePlaying[] = [
         imageUrl:
             "https://images.launchbox-app.com//9a3a021d-fe59-4cf9-82d9-08fcf1a86fff.jpg",
         startDate: new Date("2026-09-02"),
+        genres: ["Soulslike"],
         tier: "playing",
     },
 ];
@@ -90,6 +92,7 @@ const gamesObraDeArte: Game[] = [
         hours: 59,
         startDate: new Date("2024-04-20"),
         endDate: new Date("2024-05-03"),
+        genres: ["Action RPG"],
         tier: "obra-de-arte",
     },
 ];
@@ -103,6 +106,7 @@ const gamesIncrivel: Game[] = [
         hours: 7,
         startDate: new Date("2023-10-07"),
         endDate: new Date("2023-10-10"),
+        genres: ["Plataforma 2D"],
         tier: "incrivel",
     },
     {
@@ -113,6 +117,7 @@ const gamesIncrivel: Game[] = [
         hours: horasMinutosToHoras(46, 7),
         startDate: new Date("2026-08-15"),
         endDate: new Date("2026-09-02"),
+        genres: ["Action RPG"],
         tier: "incrivel",
     },
 ];
@@ -126,6 +131,7 @@ const gamesOtimo: Game[] = [
         hours: 170,
         startDate: new Date("2023-10-11"),
         endDate: new Date("2023-12-26"),
+        genres: ["Action RPG"],
         tier: "otimo",
     },
     {
@@ -136,6 +142,7 @@ const gamesOtimo: Game[] = [
         hours: 15,
         startDate: new Date("2023-09-08"),
         endDate: new Date("2023-09-26"),
+        genres: ["FPS"],
         tier: "otimo",
     },
     {
@@ -146,6 +153,7 @@ const gamesOtimo: Game[] = [
         hours: horasMinutosToHoras(13, 53),
         startDate: new Date("2023-09-08"),
         endDate: new Date("2023-09-26"),
+        genres: ["Hack and Slash"],
         tier: "otimo",
     },
     {
@@ -156,6 +164,7 @@ const gamesOtimo: Game[] = [
         hours: horasMinutosToHoras(26, 16),
         startDate: new Date("2024-12-08"),
         endDate: new Date("2024-12-21"),
+        genres: ["Metroidvania"],
         tier: "otimo",
     },
     {
@@ -166,6 +175,7 @@ const gamesOtimo: Game[] = [
         hours: horasMinutosToHoras(23, 33),
         startDate: new Date("2024-09-23"),
         endDate: new Date("2025-10-30"),
+        genres: ["Metroidvania"],
         tier: "otimo",
     },
     {
@@ -176,6 +186,7 @@ const gamesOtimo: Game[] = [
         hours: 9.4,
         startDate: new Date("2025-12-22"),
         endDate: new Date("2026-01-04"),
+        genres: ["FPS"],
         tier: "otimo",
     },
     {
@@ -186,6 +197,7 @@ const gamesOtimo: Game[] = [
         hours: 52.5,
         startDate: new Date("2026-02-19"),
         endDate: new Date("2026-03-07"),
+        genres: ["Soulslike"],
         tier: "otimo",
     },
     {
@@ -196,6 +208,7 @@ const gamesOtimo: Game[] = [
         hours: 44.9,
         startDate: new Date("2026-04-04"),
         endDate: new Date("2026-05-07"),
+        genres: ["Soulslike"],
         tier: "otimo",
     },
     {
@@ -206,6 +219,7 @@ const gamesOtimo: Game[] = [
         hours: 58.1,
         startDate: new Date("2026-05-09"),
         endDate: new Date("2026-08-15"),
+        genres: ["Action RPG"],
         tier: "otimo",
     },
 ];
@@ -219,6 +233,7 @@ const gamesMuitoBom: Game[] = [
         hours: horasMinutosToHoras(30, 0),
         startDate: new Date("2023"),
         endDate: new Date("2023"),
+        genres: ["Action RPG"],
         tier: "muito-bom",
     },
     {
@@ -229,6 +244,7 @@ const gamesMuitoBom: Game[] = [
         hours: horasMinutosToHoras(12, 0),
         startDate: new Date("2010"),
         endDate: new Date("2010"),
+        genres: ["FPS"],
         tier: "muito-bom",
     },
     {
@@ -239,6 +255,7 @@ const gamesMuitoBom: Game[] = [
         hours: horasMinutosToHoras(6, 30),
         startDate: new Date("2024"),
         endDate: new Date("2024"),
+        genres: ["FPS"],
         tier: "muito-bom",
     },
     {
@@ -249,6 +266,7 @@ const gamesMuitoBom: Game[] = [
         hours: 14.4,
         startDate: new Date("2024"),
         endDate: new Date("2024"),
+        genres: ["FPS"],
         tier: "muito-bom",
     },
     {
@@ -259,6 +277,7 @@ const gamesMuitoBom: Game[] = [
         hours: horasMinutosToHoras(25, 17),
         startDate: new Date("2024"),
         endDate: new Date("2024"),
+        genres: ["Action RPG"],
         tier: "muito-bom",
     },
     {
@@ -269,6 +288,7 @@ const gamesMuitoBom: Game[] = [
         hours: horasMinutosToHoras(37, 47),
         startDate: new Date("2025"),
         endDate: new Date("2025"),
+        genres: ["Action RPG"],
         tier: "muito-bom",
     },
     {
@@ -279,6 +299,7 @@ const gamesMuitoBom: Game[] = [
         hours: 12.4,
         startDate: new Date("2025"),
         endDate: new Date("2025-11-20"),
+        genres: ["Action RPG"],
         tier: "muito-bom",
     },
     {
@@ -289,6 +310,7 @@ const gamesMuitoBom: Game[] = [
         hours: 12.4,
         startDate: new Date("2025-11-21"),
         endDate: new Date("2025-12-21"),
+        genres: ["Hack and Slash"],
         tier: "muito-bom",
     },
     {
@@ -299,6 +321,7 @@ const gamesMuitoBom: Game[] = [
         hours: horasMinutosToHoras(42 + 1, 25 + 19),
         startDate: new Date("2025"),
         endDate: new Date("2025-04-07"),
+        genres: ["Metroidvania"],
         tier: "muito-bom",
     },
     {
@@ -309,6 +332,7 @@ const gamesMuitoBom: Game[] = [
         hours: 22.9,
         startDate: new Date("2026-01-24"),
         endDate: new Date("2026-02-03"),
+        genres: ["Metroidvania"],
         tier: "muito-bom",
     },
     {
@@ -319,6 +343,7 @@ const gamesMuitoBom: Game[] = [
         hours: 14.4,
         startDate: new Date("2026-03-09"),
         endDate: new Date("2026-03-20"),
+        genres: ["Aventura"],
         tier: "muito-bom",
     },
     {
@@ -329,6 +354,7 @@ const gamesMuitoBom: Game[] = [
         hours: 32.2,
         startDate: new Date("2026-03-20"),
         endDate: new Date("2026-04-04"),
+        genres: ["Soulslike"],
         tier: "muito-bom",
     },
 ];
@@ -342,6 +368,7 @@ const gamesBom: Game[] = [
         hours: 20,
         startDate: new Date("2023"),
         endDate: new Date("2023"),
+        genres: ["Musou"],
         tier: "bom",
     },
     {
@@ -352,6 +379,7 @@ const gamesBom: Game[] = [
         hours: 6,
         startDate: new Date("2023"),
         endDate: new Date("2023"),
+        genres: ["Luta"],
         tier: "bom",
     },
     {
@@ -362,6 +390,7 @@ const gamesBom: Game[] = [
         hours: 10,
         startDate: new Date("2024"),
         endDate: new Date("2024"),
+        genres: ["FPS"],
         tier: "bom",
     },
     {
@@ -372,6 +401,7 @@ const gamesBom: Game[] = [
         hours: 7,
         startDate: new Date("2025"),
         endDate: new Date("2025"),
+        genres: ["Plataforma 2D"],
         tier: "bom",
     },
     {
@@ -382,6 +412,7 @@ const gamesBom: Game[] = [
         hours: 7.5,
         startDate: new Date("2024"),
         endDate: new Date("2024"),
+        genres: ["Metroidvania"],
         tier: "bom",
     },
     {
@@ -392,6 +423,7 @@ const gamesBom: Game[] = [
         hours: 20,
         startDate: new Date("2025"),
         endDate: new Date("2025"),
+        genres: ["Metroidvania"],
         tier: "bom",
     },
     {
@@ -402,6 +434,7 @@ const gamesBom: Game[] = [
         hours: 36.8,
         startDate: new Date("2026-01-06"),
         endDate: new Date("2026-01-24"),
+        genres: ["Action RPG", "FPS"],
         tier: "bom",
     },
     {
@@ -412,6 +445,7 @@ const gamesBom: Game[] = [
         hours: 20,
         startDate: new Date("2025"),
         endDate: new Date("2025"),
+        genres: ["Action RPG"],
         tier: "bom",
     },
     {
@@ -422,6 +456,7 @@ const gamesBom: Game[] = [
         hours: 6.8,
         startDate: new Date("2026-02-05"),
         endDate: new Date("2026-02-17"),
+        genres: ["Plataforma 2D"],
         tier: "bom",
     },
 ];
@@ -435,6 +470,7 @@ const gamesRuim: Game[] = [
         hours: 20,
         startDate: new Date("2024"),
         endDate: new Date("2024"),
+        genres: ["FPS"],
         tier: "ruim",
     },
     {
@@ -445,6 +481,7 @@ const gamesRuim: Game[] = [
         hours: horasMinutosToHoras(14, 52),
         startDate: new Date("2025"),
         endDate: new Date("2025-03-16"),
+        genres: ["Hack and Slash"],
         tier: "ruim",
     },
     {
@@ -455,6 +492,7 @@ const gamesRuim: Game[] = [
         hours: 4,
         startDate: new Date("2025"),
         endDate: new Date("2025"),
+        genres: ["Plataforma 2D"],
         tier: "ruim",
     },
     {
@@ -465,6 +503,7 @@ const gamesRuim: Game[] = [
         hours: 24,
         startDate: new Date("2025"),
         endDate: new Date("2025"),
+        genres: ["RPG de Turno"],
         tier: "ruim",
     },
 ];
@@ -478,6 +517,7 @@ const gamesHorrivel: Game[] = [
         hours: 35,
         startDate: new Date("2024-04-04"),
         endDate: new Date("2024-04-16"),
+        genres: ["Action RPG"],
         tier: "horrivel",
     },
     {
@@ -488,6 +528,7 @@ const gamesHorrivel: Game[] = [
         hours: 1.95,
         startDate: new Date("2025-02-18"),
         endDate: new Date("2025-02-19"),
+        genres: ["Hack and Slash"],
         tier: "horrivel",
     },
 ];
