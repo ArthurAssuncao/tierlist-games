@@ -66,11 +66,11 @@ export const tiers: TierList[] = [
 //www.steamgriddb.com/grid/623097
 export const gamesPlaying: GamePlaying[] = [
     {
-        name: "WUCHANG: Fallen Feathers",
+        name: "Clair Obscur: Expedition 33",
         imageUrl:
-            "https://images.launchbox-app.com//9a3a021d-fe59-4cf9-82d9-08fcf1a86fff.jpg",
-        startDate: new Date("2026-09-02"),
-        genres: ["Soulslike"],
+            "https://images.launchbox-app.com//9fd4edd1-a6ef-404a-b650-4051cdaad520.jpg",
+        startDate: new Date("2026-09-26"),
+        genres: ["RPG de Turno"],
         tier: "playing",
         finished: false,
     },
@@ -226,6 +226,18 @@ const gamesOtimo: Game[] = [
         genres: ["Action RPG"],
         tier: "otimo",
         finished: true,
+    },
+    {
+        name: "WUCHANG: Fallen Feathers",
+        imageUrl:
+            "https://images.launchbox-app.com//9a3a021d-fe59-4cf9-82d9-08fcf1a86fff.jpg",
+        startDate: new Date("2026-09-02"),
+        endDate: new Date("2026-09-20"),
+        genres: ["Soulslike"],
+        tier: "otimo",
+        finished: true,
+        rating: 8.4,
+        hours: horasMinutosToHoras(54, 41),
     },
 ];
 
