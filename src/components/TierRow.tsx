@@ -1,4 +1,4 @@
-import { Game, TierList } from "../types";
+import { Game, TierList, tierRatingRanges } from "../types";
 import GameCard from "./GameCard";
 
 interface TierRowProps {
@@ -31,20 +31,28 @@ const TierRow: React.FC<TierRowProps> = ({
             <div className="w-full md:w-32 flex flex-row md:flex-col items-center justify-center font-bold text-white p-2 ">
                 <span className="text-center">{tier.icon}</span>
                 <span className="text-center">{tier.name}</span>
+                {tier.id !== "playing" && (
+                    <span className="text-center text-sm">
+                        {tierRatingRanges[tier.id].min} a{" "}
+                        {Math.floor(tierRatingRanges[tier.id].max * 10) / 10}
+                    </span>
+                )}
             </div>
             <div
                 className={`flex-1 bg-gray-800/90 flex justify-between md:justify-start flex-wrap gap-2 ${getBorderRadius()}`}
             >
-                {tier.games.map((game) => (
-                    <GameCard
-                        key={game.name
-                            .replaceAll(" ", "-")
-                            .replaceAll(":", "")
-                            .replaceAll("'", "")}
-                        game={game}
-                        onClick={() => onGameClick(game)}
-                    />
-                ))}
+                {tier.games
+                    .sort((a, b) => b.rating - a.rating)
+                    .map((game) => (
+                        <GameCard
+                            key={game.name
+                                .replaceAll(" ", "-")
+                                .replaceAll(":", "")
+                                .replaceAll("'", "")}
+                            game={game}
+                            onClick={() => onGameClick(game)}
+                        />
+                    ))}
             </div>
         </div>
     );

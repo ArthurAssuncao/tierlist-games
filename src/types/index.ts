@@ -10,7 +10,10 @@ type GameTier =
 
 type TierWithRating = Exclude<GameTier, "playing">;
 
-const tierRatingRanges: Record<TierWithRating, { min: number; max: number }> = {
+export const tierRatingRanges: Record<
+    TierWithRating,
+    { min: number; max: number }
+> = {
     "obra-de-arte": { min: 9.6, max: 10 },
     incrivel: { min: 9, max: 9.59 },
     otimo: { min: 8, max: 8.99 },
