@@ -275,6 +275,13 @@ const GameList: React.FC<GameListProps> = ({ games }) => {
                                         ? "jogo"
                                         : "jogos"}
                                 </span>
+                                <span className="bg-gray-800 text-gray-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-gray-700">
+                                    {formatHours(
+                                        group.games
+                                            .map((game) => game.hours)
+                                            .reduce((a, b) => a + b, 0),
+                                    )}
+                                </span>
                             </div>
 
                             {/* Grid de Cards */}
